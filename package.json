@@ -1,18 +1,10 @@
 {
-	"name": "indent-nested-dictionary",
-	"displayName": "Indent Nested Dictionary",
-	"description": "This extension will try its best to indent JSONs and Python dictionary, even incomplete.",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.39.0"
-	},
-	"categories": [
-		"Formatters"
-	],
 	"activationEvents": [
 		"onCommand:extension.indentNestedDictionary"
 	],
-	"main": "./dist/extension.js",
+	"categories": [
+		"Formatters"
+	],
 	"contributes": {
 		"commands": [
 			{
@@ -21,17 +13,7 @@
 			}
 		]
 	},
-	"icon": "images/icon.png",
-	"scripts": {
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js",
-		"vscode:prepublish": "webpack --mode production",
-		"webpack": "webpack --mode development",
-		"webpack-dev": "webpack --mode development --watch",
-		"test-compile": "tsc -p ./"
-	},
+	"description": "This extension will try its best to indent JSONs and Python dictionary, even incomplete.",
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.6",
@@ -45,5 +27,28 @@
 		"vscode-test": "^1.2.0",
 		"webpack": "^4.41.6",
 		"webpack-cli": "^3.3.11"
-	}
+	},
+	"displayName": "Indent Nested Dictionary",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"icon": "images/icon.png",
+	"main": "./dist/extension.js",
+	"name": "indent-nested-dictionary",
+	"publisher": "mgesbert",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mgesbert/vscode-indent-nested-dictionary.git"
+	},
+	"scripts": {
+		"compile": "tsc -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"test-compile": "tsc -p ./",
+		"vscode:prepublish": "webpack --mode production",
+		"watch": "tsc -watch -p ./",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch"
+	},
+	"version": "0.0.1"
 }
