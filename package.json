@@ -1,0 +1,49 @@
+{
+	"name": "indent-nested-dictionary",
+	"displayName": "Indent Nested Dictionary",
+	"description": "This extension will try its best to indent JSONs and Python dictionary, even incomplete.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"activationEvents": [
+		"onCommand:extension.indentNestedDictionary"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.indentNestedDictionary",
+				"title": "Indent Nested Dictionary"
+			}
+		]
+	},
+	"icon": "images/icon.png",
+	"scripts": {
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"test-compile": "tsc -p ./"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.39.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"ts-loader": "^6.2.1",
+		"tslint": "^5.12.1",
+		"typescript": "^3.8.2",
+		"vscode-test": "^1.2.0",
+		"webpack": "^4.41.6",
+		"webpack-cli": "^3.3.11"
+	}
+}
