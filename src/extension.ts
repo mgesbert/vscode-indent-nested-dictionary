@@ -1,15 +1,25 @@
 import * as vscode from "vscode";
 import formatDict from "./indent";
 
+function getIndentToken(activeTextEditor: vscode.TextEditor) {
+  const insertSpaces = activeTextEditor.options.insertSpaces;
+  if (!insertSpaces) {
+    return "\t";
+  }
+  const tabSize = activeTextEditor.options.tabSize as number; // valid cast according to the doc
+  return " ".repeat(tabSize);
+}
+
 function indentNestedDictionary() {
   const activeTextEditor = vscode.window.activeTextEditor;
   if (activeTextEditor === undefined) {
     return;
   }
-  activeTextEditor.edit(editBuilder => {
-    activeTextEditor.selections.forEach(selection => {
+  const indentToken = getIndentToken(activeTextEditor);
+  activeTextEditor.edit((editBuilder) => {
+    activeTextEditor.selections.forEach((selection) => {
       const selectedValue = activeTextEditor.document.getText(selection);
-      const indentedValue = formatDict(selectedValue);
+      const indentedValue = formatDict(selectedValue, indentToken);
       editBuilder.replace(selection, indentedValue);
     });
   });
