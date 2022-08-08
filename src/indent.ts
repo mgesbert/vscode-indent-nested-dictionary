@@ -63,9 +63,10 @@ function indentDict(s: string, indentToken: string, indent = 0): string {
       }
 
       if (
-        indentChars.includes(prevChar) ||
-        prevChar === "," ||
-        deindentChars.includes(nextChar)
+        (indentChars.includes(prevChar) ||
+          prevChar === "," ||
+          deindentChars.includes(nextChar)) &&
+        prevChar !== indentChars[deindentChars.indexOf(nextChar)] // handle empty structures
       ) {
         acc += "\n";
         acc = appendIndent(acc, indentToken, indent);

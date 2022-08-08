@@ -162,4 +162,17 @@ suite("Extension Test Suite", () => {
     }`;
     customAssertEqual(actual, expected, "  ");
   });
+
+  test("Simple dict with empty structures", () => {
+    const input = "{'a': [], 2: [{}], True: {}}";
+    const actual = formatDict(input, "  ");
+    const expected = `{
+      'a': [],
+      2: [
+        {}
+      ],
+      True: {}
+    }`;
+    customAssertEqual(actual, expected, "  ");
+  });
 });
