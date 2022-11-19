@@ -26,7 +26,7 @@
 		"typescript": "^3.8.2",
 		"vscode-test": "^1.2.0",
 		"webpack": "^4.41.6",
-		"webpack-cli": "^3.3.11"
+		"webpack-cli": "^3.3.12"
 	},
 	"displayName": "Indent Nested Dictionary",
 	"engines": {
